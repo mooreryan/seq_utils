@@ -1,0 +1,2 @@
+>NODE__1 length=44___975 cov,_18_.9823-ID/1
+>NODE 2 length 14777 cov 5.0209 ID 3
