@@ -32,10 +32,19 @@ int main(int argc, char* argv[])
   int line_idx = 0;
   int first_char = 1;
   int in_header = 0;
+  int line_size = 10000;
 
-  char* line = malloc(sizeof(char) * 1000000);
+  char* line = malloc(sizeof(char) * line_size);
 
   while( (c = getchar()) ) {
+    if (line_idx >= line_size) { /* check if line needs to expand */
+      line_size *= 2;
+      char* tmp = realloc(line, sizeof(char) * line_size);
+      assert(tmp != NULL);
+
+      line = tmp;
+      assert(line != NULL);
+    }
 
     if (first_char == 1) {
       if (c == '>') {

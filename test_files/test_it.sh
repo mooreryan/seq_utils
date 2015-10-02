@@ -9,3 +9,10 @@ ruby "$DIR/wrap.rb" 3 "$DIR/small.fa" > "$DIR/r.wrap.fa"
 diff -s "$DIR/r.wrap.fa" "$DIR/c.wrap.fa"
 
 rm "$DIR/r.wrap.fa" "$DIR/c.wrap.fa"
+
+ruby "$DIR/wrap.rb" 3 "$DIR/two.contigs.fa" > "$DIR/r.wrap.fa"
+"$DIR/../bin/clean_and_flatten" 3 < "$DIR/two.contigs.fa" > "$DIR/c.wrap.fa"
+
+diff -s "$DIR/r.wrap.fa" "$DIR/c.wrap.fa"
+
+rm "$DIR/r.wrap.fa" "$DIR/c.wrap.fa"
